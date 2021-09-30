@@ -43,7 +43,7 @@ namespace AvVisualViajes.UI {
             var tbDesc = this.FindControl<TextBlock>( "TbDesc" );
             var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
 
-            dtTrips.Items = this.RegistroViajes;
+            //dtTrips.Items = this.RegistroViajes;
             tbDesc.Text = this.RegistroViajes.ToString();
         }
 
