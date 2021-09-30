@@ -1,0 +1,123 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="790" Height="590"
+        MinWidth="630" MinHeight="470"
+        MaxWidth="1000" MaxHeight="750"
+        x:Class="AvVisualViajes.UI.MainWindow"
+        Title="VisualViajes">
+    
+    <StackPanel
+        Margin="5">
+        <Border
+            HorizontalAlignment="Stretch"
+            Margin="5"
+            BorderThickness="1"
+            CornerRadius="3"
+            BorderBrush="Black">
+            
+        <DataGrid Name="DtTrips"
+                  Margin="5"
+                  IsReadOnly="True">
+<!--                    
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Kms" />
+            <DataGridTextColumn Header="Origen" />
+            <DataGridTextColumn Header="Destino" />
+            <DataGridTextColumn Header="Llegada" />
+        </DataGrid.Columns>   -->
+    </DataGrid>
+    </Border>
+    <Border
+        HorizontalAlignment="Stretch"
+        Margin="5"
+        BorderThickness="1"
+        CornerRadius="3"
+        BorderBrush="Black">
+                    
+        <TextBlock
+            Name="TbDesc"
+            Margin="5"
+            Text="This is the description."
+            HorizontalAlignment="Stretch"/>
+                    
+    </Border>
+    </StackPanel>
+    <!--
+    
+    <DockPanel
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+        
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Archivo">
+                <MenuItem Header="_Salir" Name="OpExit" />
+            </MenuItem>
+            <MenuItem Header="_Editar">
+                <MenuItem Header="_Insertar" Name="OpInsert" />
+            </MenuItem>
+            <MenuItem Header="A_yuda">
+                <MenuItem Header="_Acerca de..." Name="OpAbout" />
+            </MenuItem>
+        </Menu>
+        
+        <DockPanel
+            Margin="5"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+        
+            <Border    Margin="5"
+                       BorderThickness="1"
+                       CornerRadius="3"
+                       BorderBrush="Black">
+
+                <DataGrid Name="DtTrips"
+                          Margin="5"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True">
+                    
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Kms" />
+                        <DataGridTextColumn Header="Origen" />
+                        <DataGridTextColumn Header="Destino" />
+                        <DataGridTextColumn Header="Llegada" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+            
+            <StackPanel DockPanel.Dock="Right"
+                        Margin="5"
+                        Orientation="Vertical"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Right">
+                            
+                <Button Name="BtInsert"
+                        Margin="5"
+                        Content="Insertar" />
+            </StackPanel>
+            
+        </DockPanel>
+        
+        <Border
+            DockPanel.Dock="Bottom"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Bottom"
+            Margin="5"
+            BorderThickness="1"
+            CornerRadius="3"
+            BorderBrush="Black">
+                    
+            <TextBlock
+                Name="TbDesc"
+                Margin="5"
+                Text="This is the description."
+                HorizontalAlignment="Stretch"/>
+                    
+        </Border>
+        
+    </DockPanel>
+    
+    -->
+</Window>

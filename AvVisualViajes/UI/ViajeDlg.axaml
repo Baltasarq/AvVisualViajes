@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Width="300" Height="250"
+        MinWidth="300" MinHeight="250"
+        MaxWidth="600" MaxHeight="350"
+        x:Class="AvVisualViajes.UI.ViajeDlg"
+        Title="DemoAvalonia">
+    
+    <StackPanel Margin="5">
+        <Border
+            BorderThickness="1"
+            CornerRadius="3"
+            BorderBrush="Black"
+            VerticalAlignment="Stretch">
+            
+            <StackPanel
+                Orientation="Vertical">
+                
+                <DockPanel Margin="5">
+                    <Label Margin="5" Content="Origen" DockPanel.Dock="Left" HorizontalAlignment="Left" />
+                    <TextBox Margin="5" Name="EdOrg" />
+                </DockPanel>
+                
+                <DockPanel Margin="5">
+                    <Label Margin="5" Content="Destino" DockPanel.Dock="Left" HorizontalAlignment="Left" />
+                    <TextBox Margin="5" Name="EdDst"/>
+                </DockPanel>
+                
+                <DockPanel Margin="5">
+                    <Label Margin="5" Content="Kilometraje" DockPanel.Dock="Left" HorizontalAlignment="Left" />
+                    <NumericUpDown
+                        Margin="5" Name="EdKms"
+                        Minimum="1"
+                        Value="10" />
+                </DockPanel>
+                
+            </StackPanel>
+            
+        </Border>
+        
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="5">
+            
+            <Button Name="BtCancel"
+                    Content="Cancel"
+                    Margin="5"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center" />
+            
+            <Button Name="BtOk"
+                    Content="Ok"
+                    Margin="5"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center" />
+            
+        </StackPanel>
+    </StackPanel>
+</Window>
