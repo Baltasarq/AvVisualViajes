@@ -21,8 +21,7 @@
             
         <DataGrid Name="DtTrips"
                   Margin="5"
-                  IsReadOnly="True"
-                  Items="{Binding RegistroViajes}">
+                  IsReadOnly="True">
 <!--                    
         <DataGrid.Columns>
             <DataGridTextColumn Header="Kms" />

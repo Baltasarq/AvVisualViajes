@@ -3,11 +3,12 @@
 
 namespace AvVisualViajes.Core {
     using System.Text;
+    using System.ComponentModel;
     using System.Collections;
 	using System.Collections.Generic;
     
 	
-	public class RegistroViajes: IEnumerable<Viaje> {
+	public class RegistroViajes: IEnumerable<Viaje>, INotifyPropertyChanged {
 		/// <summary>
         /// Crea un <see cref="T:Viajes.Core.RegistroViajes"/> sin viajes.
         /// </summary>
@@ -34,6 +35,7 @@ namespace AvVisualViajes.Core {
 		public void Add(Viaje v)
 		{
 			this.viajes.Add( v );
+			OnPropertyChanged( nameof( RegistroViajes ) );
 		}
 
         /// <summary>
@@ -128,7 +130,15 @@ namespace AvVisualViajes.Core {
 
 			return toret.ToString();
 		}
-
+        
+        protected void OnPropertyChanged(string propertyName)
+        {
+	        if ( this.PropertyChanged != null ) {
+		        this.PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
+	        }
+        }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
 		List<Viaje> viajes;
 	}
 }
