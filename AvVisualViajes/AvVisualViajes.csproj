@@ -5,11 +5,6 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.7" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.7" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.7" />
-    </ItemGroup>
-    <ItemGroup>
       <Compile Update="UI\AboutWindow.axaml.cs">
         <DependentUpon>AboutWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
@@ -26,5 +21,10 @@
         <DependentUpon>ViajeDlg.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="0.10.7" />
+      <PackageReference Include="Avalonia.Desktop" Version="0.10.7" />
+      <PackageReference Include="Avalonia.Diagnostics" Version="0.10.7" />
     </ItemGroup>
 </Project>

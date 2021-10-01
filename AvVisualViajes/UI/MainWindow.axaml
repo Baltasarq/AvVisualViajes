@@ -2,52 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:core="clr-namespace:AvVisualViajes.Core"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="790" Height="590"
         MinWidth="630" MinHeight="470"
         MaxWidth="1000" MaxHeight="750"
         x:Class="AvVisualViajes.UI.MainWindow"
         Title="VisualViajes">
-    
-    <StackPanel
-        Margin="5">
-        <Border
-            HorizontalAlignment="Stretch"
-            Margin="5"
-            BorderThickness="1"
-            CornerRadius="3"
-            BorderBrush="Black">
-            
-        <DataGrid Name="DtTrips"
-                  Margin="5"
-                  IsReadOnly="True"
-                  Items="{Binding MainWindow.RegistroViajes}">
-<!--                    
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="Kms" />
-            <DataGridTextColumn Header="Origen" />
-            <DataGridTextColumn Header="Destino" />
-            <DataGridTextColumn Header="Llegada" />
-        </DataGrid.Columns>   -->
-    </DataGrid>
-    </Border>
-    <Border
-        HorizontalAlignment="Stretch"
-        Margin="5"
-        BorderThickness="1"
-        CornerRadius="3"
-        BorderBrush="Black">
-                    
-        <TextBlock
-            Name="TbDesc"
-            Margin="5"
-            Text="This is the description."
-            HorizontalAlignment="Stretch"/>
-                    
-    </Border>
-    </StackPanel>
-    <!--
     
     <DockPanel
         HorizontalAlignment="Stretch"
@@ -78,13 +38,15 @@
                 <DataGrid Name="DtTrips"
                           Margin="5"
                           AutoGenerateColumns="False"
-                          IsReadOnly="True">
+                          IsReadOnly="True"
+                          SelectionMode="Single">
+                    
                     
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Kms" />
-                        <DataGridTextColumn Header="Origen" />
-                        <DataGridTextColumn Header="Destino" />
-                        <DataGridTextColumn Header="Llegada" />
+                        <DataGridTextColumn Header="Kms" Binding="{Binding Kms}" />
+                        <DataGridTextColumn Header="Origen"  Binding="{Binding Inicio}" />
+                        <DataGridTextColumn Header="Destino"  Binding="{Binding Destino}" />
+                        <DataGridTextColumn Header="Llegada" Binding="{Binding LlegadaDesdeAhora}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>
@@ -102,24 +64,12 @@
             
         </DockPanel>
         
-        <Border
+        <Label
             DockPanel.Dock="Bottom"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Bottom"
+            Name="LblDesc"
             Margin="5"
-            BorderThickness="1"
-            CornerRadius="3"
-            BorderBrush="Black">
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Stretch" />
                     
-            <TextBlock
-                Name="TbDesc"
-                Margin="5"
-                Text="This is the description."
-                HorizontalAlignment="Stretch"/>
-                    
-        </Border>
-        
     </DockPanel>
-    
-    -->
 </Window>

@@ -17,19 +17,21 @@ namespace AvVisualViajes.UI {
             this.AttachDevTools();
 #endif
 
-           /* var opExit = this.FindControl<MenuItem>( "OpExit" );
+            var opExit = this.FindControl<MenuItem>( "OpExit" );
             var opAbout = this.FindControl<MenuItem>( "OpAbout" );
             var opInsert = this.FindControl<MenuItem>( "OpInsert" );
             var btInsert = this.FindControl<Button>( "BtInsert" );
+            var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
 
             opExit.Click += (_, _) => this.OnExit();
             opAbout.Click += (_, _) => this.OnAbout();
             btInsert.Click += (_, _) => this.OnInsert(); 
             opInsert.Click += (_, _) => this.OnInsert();
             this.Closed += (_, _) => this.OnClose();
-            */
+            dtTrips.SelectionChanged += (_, _) => this.OnTripSelected();
+
             this.RegistroViajes = XmlRegistroViajes.RecuperaXml();
-            this.BuildDataGrid();
+            dtTrips.Items = this.RegistroViajes;
         }
 
         void InitializeComponent()
@@ -37,18 +39,19 @@ namespace AvVisualViajes.UI {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             AvaloniaXamlLoader.Load(this);
         }
-
-        void BuildDataGrid()
+        
+        void OnTripSelected()
         {
-            var tbDesc = this.FindControl<TextBlock>( "TbDesc" );
-            //var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
+            var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
+            var lblDesc = this.FindControl<Label>( "LblDesc" );
+            Viaje? viaje = (Viaje) dtTrips.SelectedItem;
 
-            //dtTrips.Items = this.RegistroViajes;
-            tbDesc.Text = this.RegistroViajes.ToString();
-            
-            this.RegistroViajes.Add( new Viaje("Ourense", "Madrid", 500 ) );
+            if ( viaje != null ) {
+                lblDesc.Content = viaje.Autobus
+                                    + ": " + viaje.Duracion + " horas.";
+            }
         }
-
+        
         void OnClose()
         {
             new XmlRegistroViajes( this.RegistroViajes ).GuardaXml();
@@ -67,6 +70,7 @@ namespace AvVisualViajes.UI {
 
         async void OnInsert()
         {
+            var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
             var viajeDlg = new ViajeDlg();
             await viajeDlg.ShowDialog( this );
 

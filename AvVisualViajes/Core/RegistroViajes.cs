@@ -3,18 +3,22 @@
 
 namespace AvVisualViajes.Core {
     using System.Text;
-    using System.ComponentModel;
-    using System.Collections;
 	using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
 	
-	public class RegistroViajes: IEnumerable<Viaje>, INotifyPropertyChanged {
+    /// <summary>
+    /// Esta clase deriva de ObservableCollection para poder
+    /// ser utilizada como fuente de datos en una interfaz de usuario.
+    /// En cuanto al resto, se comporta como una List<Viaje>.
+    /// </summary>
+	public class RegistroViajes: ObservableCollection<Viaje> {
 		/// <summary>
         /// Crea un <see cref="T:Viajes.Core.RegistroViajes"/> sin viajes.
         /// </summary>
 		public RegistroViajes()
+			:this( new List<Viaje>() )
 		{
-			this.viajes = new List<Viaje>();
 		}
         
         /// <summary>
@@ -23,39 +27,9 @@ namespace AvVisualViajes.Core {
         /// </summary>
         /// <param name="viajes">Varios <see cref="Viaje"/> de partida.</param>
         public RegistroViajes(IEnumerable<Viaje> viajes)
-            :this()
+			:base(viajes)
         {
-            this.viajes.AddRange( viajes );
         }
-
-        /// <summary>
-        /// Inserta un viaje dado al final de la lista.
-        /// </summary>
-        /// <param name="v">Un objeto <see cref="Viaje"/>.</param>
-		public void Add(Viaje v)
-		{
-			this.viajes.Add( v );
-			OnPropertyChanged( nameof( RegistroViajes ) );
-		}
-
-        /// <summary>
-        /// Elimina un viaje dado.
-        /// </summary>
-        /// <returns>True si se ha eliminado, False en otro caso.</returns>
-        /// <param name="v">El <see cref="Viaje"/> a eliminar.</param>
-		public bool Remove(Viaje v)
-		{
-			return this.viajes.Remove( v );
-		}
-
-        /// <summary>
-        /// Elimina un viaje en la pos. i.
-        /// </summary>
-        /// <param name="i">La pos. a eliminar</param>
-		public void RemoveAt(int i)
-		{
-			this.viajes.RemoveAt( i );
-		}
 
         /// <summary>
         /// Inserta al final varios viajes dados.
@@ -63,23 +37,10 @@ namespace AvVisualViajes.Core {
         /// <param name="vs">Los <see cref="Viaje"/>s a insertar.</param>
 		public void AddRange(IEnumerable<Viaje> vs)
 		{
-			this.viajes.AddRange( vs );
-		}
-
-        /// <summary>
-        /// Devuelve el total de viajes guardados en este registro.
-        /// </summary>
-        /// <value>El total de viajes, como entero.</value>
-		public int Count {
-			get { return this.viajes.Count; }
-		}
-
-        /// <summary>
-        /// Elimina todos los viajes almacenados.
-        /// </summary>
-		public void Clear()
-		{
-			this.viajes.Clear();
+			foreach (Viaje v in vs)
+			{
+				this.Add( v );
+			}
 		}
 
         /// <summary>
@@ -88,33 +49,11 @@ namespace AvVisualViajes.Core {
         /// <returns>Un vecctor con todos los viajes.</returns>
         public Viaje[] ToArray()
         {
-	        var toret = new Viaje[ this.viajes.Count ];
+	        var toret = new Viaje[ this.Count ];
 	        
-			this.viajes.CopyTo( toret, 0 );
+			this.CopyTo( toret, 0 );
 			return toret;
         }
-
-		// Enumerador aplicado a Viaje.
-		IEnumerator<Viaje> IEnumerable<Viaje>.GetEnumerator()
-	 	{
-	 		foreach(var v in this.viajes) {
-	 			yield return v;
-	 		}
-	 	}
-	 			
-	 	// Enumerador sin tipo
-	 	IEnumerator IEnumerable.GetEnumerator()
-	 	{
-	 			foreach(var v in this.viajes) {
-	 				yield return v;
-	 			}
-	 	}
-
-		// Indizador
-		public Viaje this[int i] {
-			get { return this.viajes[ i ]; }
-			set { this.viajes[ i ] = value; }
-		}
 
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Viajes.Core.RegistroViajes"/>.
@@ -123,22 +62,12 @@ namespace AvVisualViajes.Core {
 		public override string ToString()
 		{
 			var toret = new StringBuilder();
-
-			foreach(Viaje v in this.viajes) {
+			
+			foreach(Viaje v in this) {
 				toret.AppendLine( v.ToString() );
 			}
 
 			return toret.ToString();
 		}
-        
-        protected void OnPropertyChanged(string propertyName)
-        {
-	        if ( this.PropertyChanged != null ) {
-		        this.PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
-	        }
-        }
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-		List<Viaje> viajes;
-	}
+    }
 }

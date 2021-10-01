@@ -25,39 +25,17 @@ namespace AvVisualViajes.Core {
         }
         
         /// <summary>
-        /// Obtiene el num. de horas del viaje.
-        /// </summary>
-        /// <value>El num. de horas como real.</value>
-        public double Duracion {
-            get {
-                double porcentajeVMin = 1.0 - this.Recorrido.PorcentajeVMaxima;
-                double distanciaVMin = this.Kms * porcentajeVMin;
-                double distanciaVMax = this.Kms * this.Recorrido.PorcentajeVMaxima;
-
-                return ( distanciaVMin / Autobus.VelocidadMinima )
-                    + ( distanciaVMax / this.Autobus.VelocidadMaxima );
-            }
-        }
-        
-        /// <summary>
-        /// Calcula la hora de llegada.
-        /// </summary>
-        /// <returns>La hora de llegada, como <see cref="DateTime"/></returns>
-        public DateTime CalculaHoraLlegada()
-        {
-            return this.CalculaHoraLlegada( DateTime.Now );
-        }
-        
-        /// <summary>
         /// Calcula la hora de llegada.
         /// </summary>
         /// <returns>La hora de llegada, como <see cref="DateTime"/></returns>
         /// <param name="partida">
-        /// La hora de partida, como <see cref="DateTime"/>.</param>
-        public DateTime CalculaHoraLlegada(DateTime partida)
+        /// La hora de partida, como <see cref="DateTime"/>.
+        /// Si no se incluye, se asume que es este justo momento.
+        /// </param>
+        public DateTime CalculaHoraLlegada(DateTime? partida = null)
         {
             // Calcula, 1 jornada = 6 horas
-            DateTime toret = partida;
+            DateTime toret = partida ?? DateTime.Now;
             double duracion = this.Duracion;
             int numDias = (int) duracion / NumHorasPorJornada;
             int numHoras;
@@ -129,6 +107,31 @@ namespace AvVisualViajes.Core {
         /// <value>El objeto <see cref="Autobus"/>.</value>
         public Autobus Autobus {
             get; private set;
+        }
+        
+        /// <summary>
+        /// Obtiene el num. de horas del viaje.
+        /// </summary>
+        /// <value>El num. de horas como real.</value>
+        public double Duracion {
+            get {
+                double porcentajeVMin = 1.0 - this.Recorrido.PorcentajeVMaxima;
+                double distanciaVMin = this.Kms * porcentajeVMin;
+                double distanciaVMax = this.Kms * this.Recorrido.PorcentajeVMaxima;
+
+                return ( distanciaVMin / Autobus.VelocidadMinima )
+                       + ( distanciaVMax / this.Autobus.VelocidadMaxima );
+            }
+        }
+
+        /// <summary>
+        /// La llegada desde este mismo momento.
+        /// </summary>
+        /// <seealso cref="CalculaHoraLlegada"/>
+        public DateTime LlegadaDesdeAhora {
+            get {
+                return this.CalculaHoraLlegada();
+            }
         }
         
         /// <summary>
