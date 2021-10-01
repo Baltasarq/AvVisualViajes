@@ -72,7 +72,6 @@ namespace AvVisualViajes.UI {
 
         async void OnInsert()
         {
-            var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
             var viajeDlg = new ViajeDlg();
             await viajeDlg.ShowDialog( this );
 

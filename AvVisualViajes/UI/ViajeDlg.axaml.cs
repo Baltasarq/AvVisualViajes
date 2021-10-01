@@ -5,15 +5,10 @@ namespace AvVisualViajes.UI {
     using Avalonia;
     using Avalonia.Controls;
     using Avalonia.Markup.Xaml;
-    using AvVisualViajes.Core;
     
     
     public partial class ViajeDlg : Window
     {
-        public const string DefaultOrg = "Ourense";
-        public const string DefaultDst = "Madrid";
-        public const double DefaultKms = 500;
-        
         public ViajeDlg()
             : this( DefaultOrg, DefaultDst, DefaultKms )
         {
@@ -74,5 +69,9 @@ namespace AvVisualViajes.UI {
             get;
             private set;
         }
+        
+        const string DefaultOrg = "Ourense";
+        const string DefaultDst = "Madrid";
+        const double DefaultKms = 500;
     }
 }
