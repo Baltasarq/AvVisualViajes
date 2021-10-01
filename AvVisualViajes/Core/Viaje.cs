@@ -57,12 +57,10 @@ namespace AvVisualViajes.Core {
         {
             bool toret = false;
             
-            if ( otro is Viaje otroViaje
-              && !ReferenceEquals( this, otroViaje ) )
-            {
+            if ( otro is Viaje otroViaje ) {
                 toret = ( this.Inicio == otroViaje.Inicio
-                       && this.Destino == otroViaje.Destino
-                       && this.Kms == otroViaje.Kms );
+                          && this.Destino == otroViaje.Destino
+                          && this.Kms == otroViaje.Kms );
             }
 
             return toret;

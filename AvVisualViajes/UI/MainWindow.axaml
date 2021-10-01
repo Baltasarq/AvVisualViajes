@@ -9,11 +9,13 @@
         x:Class="AvVisualViajes.UI.MainWindow"
         Title="VisualViajes">
     
-    <DockPanel
+    <StackPanel
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">
         
-        <Menu DockPanel.Dock="Top">
+        <Menu
+            VerticalAlignment="Top">
+            
             <MenuItem Header="_Archivo">
                 <MenuItem Header="_Salir" Name="OpExit" />
             </MenuItem>
@@ -27,7 +29,6 @@
         
         <DockPanel
             Margin="5"
-            HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch">
         
             <Border    Margin="5"
@@ -65,11 +66,10 @@
         </DockPanel>
         
         <Label
-            DockPanel.Dock="Bottom"
             Name="LblDesc"
             Margin="5"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Stretch" />
                     
-    </DockPanel>
+    </StackPanel>
 </Window>

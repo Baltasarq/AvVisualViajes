@@ -46,9 +46,11 @@ namespace AvVisualViajes.UI {
             var lblDesc = this.FindControl<Label>( "LblDesc" );
             Viaje? viaje = (Viaje) dtTrips.SelectedItem;
 
-            if ( viaje != null ) {
+            if ( viaje != null )
+            {
                 lblDesc.Content = viaje.Autobus
-                                    + ": " + viaje.Duracion + " horas.";
+                                  + string.Format(
+                                      ": {0:00.0} horas", viaje.Duracion );
             }
         }
         
