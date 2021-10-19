@@ -35,10 +35,10 @@ namespace AvVisualViajes.UI {
 			int kms = -1;
 
 			Console.WriteLine( "Inicio: " );
-			inic = Console.ReadLine();
+			inic = Console.ReadLine() ?? "";
 
 			Console.WriteLine( "Destino: " );
-			dest = Console.ReadLine();
+			dest = Console.ReadLine() ?? "";
 
 			while( kms < 0 ) {
 				Console.WriteLine( "Kms: " );

@@ -9,11 +9,12 @@
         x:Class="AvVisualViajes.UI.MainWindow"
         Title="VisualViajes">
     
-    <StackPanel
+    <DockPanel
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">
         
         <Menu
+            DockPanel.Dock="Top"
             VerticalAlignment="Top">
             
             <MenuItem Header="_Archivo">
@@ -27,30 +28,16 @@
             </MenuItem>
         </Menu>
         
+        <Label
+            DockPanel.Dock="Bottom"
+            Name="LblDesc"
+            Margin="5"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Stretch" />
+        
         <DockPanel
             Margin="5"
             VerticalAlignment="Stretch">
-        
-            <Border    Margin="5"
-                       BorderThickness="1"
-                       CornerRadius="3"
-                       BorderBrush="Black">
-
-                <DataGrid Name="DtTrips"
-                          Margin="5"
-                          AutoGenerateColumns="False"
-                          IsReadOnly="True"
-                          SelectionMode="Single">
-                    
-                    
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Kms" Binding="{Binding Kms}" />
-                        <DataGridTextColumn Header="Origen"  Binding="{Binding Inicio}" />
-                        <DataGridTextColumn Header="Destino"  Binding="{Binding Destino}" />
-                        <DataGridTextColumn Header="Llegada" Binding="{Binding LlegadaDesdeAhora}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Border>
             
             <StackPanel DockPanel.Dock="Right"
                         Margin="5"
@@ -62,14 +49,29 @@
                         Margin="5"
                         Content="Insertar" />
             </StackPanel>
+        
+            <Border    Margin="5"
+                       BorderThickness="1"
+                       CornerRadius="3"
+                       BorderBrush="Black">
+
+                <DataGrid Name="DtTrips"
+                          Margin="5"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          AlternatingRowBackground="Whitesmoke">
+                    
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Kms" Binding="{Binding Kms}" />
+                        <DataGridTextColumn Header="Origen"  Binding="{Binding Inicio}" />
+                        <DataGridTextColumn Header="Destino"  Binding="{Binding Destino}" />
+                        <DataGridTextColumn Header="Llegada" Binding="{Binding LlegadaDesdeAhora}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
             
         </DockPanel>
         
-        <Label
-            Name="LblDesc"
-            Margin="5"
-            VerticalAlignment="Bottom"
-            HorizontalAlignment="Stretch" />
-                    
-    </StackPanel>
+    </DockPanel>
 </Window>
