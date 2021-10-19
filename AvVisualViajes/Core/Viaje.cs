@@ -82,7 +82,7 @@ namespace AvVisualViajes.Core {
         /// </summary>
         /// <value>El inicio, como cadena.</value>
         public string Inicio {
-            get; private set;
+            get;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace AvVisualViajes.Core {
         /// </summary>
         /// <value>El destino, como cadena.</value>
         public string Destino {
-            get; private set;
+            get;
         }
         
         /// <summary>
@@ -98,13 +98,13 @@ namespace AvVisualViajes.Core {
         /// </summary>
         /// <value>El objeto <see cref="Recorrido"/>.</value>
         public Recorrido Recorrido {
-            get; private set;
+            get;
         }
         
         /// <summary>El transporte a emplear en el recorrido.</summary>
         /// <value>El objeto <see cref="Autobus"/>.</value>
         public Autobus Autobus {
-            get; private set;
+            get;
         }
         
         /// <summary>

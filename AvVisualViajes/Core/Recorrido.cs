@@ -63,9 +63,9 @@ namespace AvVisualViajes.Core {
         /// <summary>
         /// Distancia total a recorrer.
         /// </summary>
-        /// <value>The kms, como num. real.</value>
+        /// <value>Los kms, como num. real.</value>
         public double Kms {
-            get; private set;
+            get;
         }
 
         /// <summary>
