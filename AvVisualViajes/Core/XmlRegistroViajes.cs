@@ -2,19 +2,15 @@
 
 
 namespace AvVisualViajes.Core {
-    using System;
     using System.IO;
     using System.Xml;
     using System.Xml.Linq;
+    using System.Collections.Generic;
     
     
     public class XmlRegistroViajes {
         public const string ArchivoXml = "viajes.xml";
         const string EtqViajes = "viajes";
-        const string EtqViaje = "viaje";
-        const string EtqInicio = "inicio";
-        const string EtqDestino = "destino";
-        const string EtqKms = "kms";
 
         public XmlRegistroViajes(RegistroViajes rv)
         {
@@ -35,19 +31,13 @@ namespace AvVisualViajes.Core {
         /// </summary>
         public void GuardaXml(string nf)
         {
-            var doc = new XDocument();
             var root = new XElement( EtqViajes );
             
             foreach(Viaje viaje in this.RegistroViajes) {
-                root.Add(
-                    new XElement( EtqViaje,
-                            new XAttribute( EtqInicio, viaje.Inicio ),
-                            new XAttribute( EtqDestino, viaje.Destino ),
-                            new XElement( EtqKms, viaje.Kms.ToString() ) ) );
+                root.Add( new XmlViaje( viaje ).ToXml() );
             }
             
-            doc.Add( root );
-            doc.Save( nf );
+            root.Save( nf );
         }
 
         public RegistroViajes RegistroViajes {
@@ -66,25 +56,11 @@ namespace AvVisualViajes.Core {
             
             try {
                 var doc = XDocument.Load( f );
-				string rootTag = doc?.Root?.Name.ToString() ?? ""; 
-                
-                if ( doc?.Root != null
-                  && rootTag == EtqViajes )
-                {
-                    var viajes = doc.Root.Elements( EtqViaje );
-                    
-                    foreach(XElement viajeXml in viajes) {
-	                    string inicio =
-		                    (string?) viajeXml.Attribute( EtqInicio ) ?? "ORG";
-	                    string dest =
-		                    (string?) viajeXml.Attribute( EtqDestino ) ?? "DEST";
-	                    double km = 
-		                    Convert.ToDouble(
-			                    (string?) viajeXml.Element( EtqKms ) ?? "0" );
-	                    
-                        toret.Add( new Viaje( inicio, dest, km ) );
-                    }
-                }
+                var viajes = doc.Element( EtqViajes )?
+                                                    .Elements( XmlViaje.EtqViaje );
+
+                new List<XElement>( viajes ).ForEach(
+                    node => toret.Add( XmlViaje.FromXml( node ) ) );
             }
             catch(XmlException)
             {

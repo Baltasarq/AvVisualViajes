@@ -1,0 +1,226 @@
+<Project>
+  <Name>Viajes</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Core</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Viaje</Name>
+        <Access>Public</Access>
+        <Location left="274" top="222" />
+        <Size width="163" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Inicio { get; }</Member>
+        <Member type="Property">public string Destino { get; }</Member>
+        <Member type="Property">public double Duracion { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Recorrido</Name>
+        <Access>Public</Access>
+        <Location left="671" top="409" />
+        <Size width="163" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Kms { get; }</Member>
+        <Member type="Property">public virtual double PorcentajeVelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>RegistroViajes</Name>
+        <Access>Public</Access>
+        <Location left="28" top="244" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Autobus</Name>
+        <Access>Public</Access>
+        <Location left="262" top="409" />
+        <Size width="181" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int NumAsientos { get; }</Member>
+        <Member type="Property">public virtual int VelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>InterCity</Name>
+        <Access>Public</Access>
+        <Location left="43" top="596" />
+        <Size width="181" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override int VelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LargaDistancia</Name>
+        <Access>Public</Access>
+        <Location left="247" top="596" />
+        <Size width="181" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override int VelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Metropolitano</Name>
+        <Access>Public</Access>
+        <Location left="451" top="596" />
+        <Size width="181" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override int VelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Internacional</Name>
+        <Access>Public</Access>
+        <Location left="675" top="598" />
+        <Size width="260" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override double PorcentajeVelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>InterUrbano</Name>
+        <Access>Public</Access>
+        <Location left="967" top="597" />
+        <Size width="260" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override double PorcentajeVelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Nacional</Name>
+        <Access>Public</Access>
+        <Location left="1261" top="598" />
+        <Size width="260" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override double PorcentajeVelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Provincial</Name>
+        <Access>Public</Access>
+        <Location left="1552" top="599" />
+        <Size width="260" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override double PorcentajeVelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Urbano</Name>
+        <Access>Public</Access>
+        <Location left="1839" top="598" />
+        <Size width="260" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public override double PorcentajeVelocidadMaxima { get; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="2" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>219</X>
+          <Y>283</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>249</X>
+          <Y>283</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>477</X>
+          <Y>322</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>649</X>
+          <Y>339</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>363</X>
+          <Y>387</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>363</X>
+          <Y>387</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>352</X>
+          <Y>545</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="6" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>765</X>
+          <Y>573</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="8" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>765</X>
+          <Y>547</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="9" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>765</X>
+          <Y>545</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="10" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>765</X>
+          <Y>545</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="11" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>765</X>
+          <Y>546</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
