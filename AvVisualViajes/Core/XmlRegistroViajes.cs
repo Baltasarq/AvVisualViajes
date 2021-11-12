@@ -58,9 +58,11 @@ namespace AvVisualViajes.Core {
                 var doc = XDocument.Load( f );
                 var viajes = doc.Element( EtqViajes )?
                                                     .Elements( XmlViaje.EtqViaje );
-
-                new List<XElement>( viajes ).ForEach(
-                    node => toret.Add( XmlViaje.FromXml( node ) ) );
+                if ( viajes != null ) {
+                    foreach (XElement node in viajes) {
+                        toret.Add( XmlViaje.FromXml( node ) );
+                    }
+                }
             }
             catch(XmlException)
             {
