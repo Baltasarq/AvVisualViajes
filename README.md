@@ -4,7 +4,7 @@
 
 La aplicación de gestión de viajes utilizando Avalonia para la interfaz gráfica de usuario, aunque también proporciona un CLI.
 
-El programa puede ejecutarse tal cual, con lo que se invoca la CLI (interfaz de consola), o bien puede utilizarse el parámetro `..gui`, que hará que se invoque la interfaz gráfica.
+El programa puede ejecutarse tal cual, con lo que se invoca la CLI (interfaz de consola), o bien puede utilizarse el parámetro `--gui`, que hará que se invoque la interfaz gráfica.
 
 ## Diseño
 
