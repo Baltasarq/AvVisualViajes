@@ -5,10 +5,12 @@ namespace AvVisualViajes.UI {
     using Avalonia;
     using Avalonia.Controls;
     using Avalonia.Markup.Xaml;
+    using System.Diagnostics;
+    
     using AvVisualViajes.Core;
-    
-    
-    public partial class AboutWindow : Window {
+
+
+    public class AboutWindow : Window {
         public AboutWindow()
         {
             InitializeComponent();
@@ -18,8 +20,11 @@ namespace AvVisualViajes.UI {
 
             var btOk = this.FindControl<Button>( "BtOk" );
             var txtAbout = this.FindControl<TextBlock>( "TxtAbout" );
+            
+            Debug.Assert( btOk != null, "btOk no encontrado en XAML!" );
+            Debug.Assert( txtAbout != null, "txtAbout no encontrado en XAML!" );
 
-            btOk.Click += (sender, args) => this.OnExit();
+            btOk.Click += (_, _) => this.OnExit();
             txtAbout.Text = AppInfo.Name + " v" + AppInfo.Version
                             + "\n" + AppInfo.Email;
         }

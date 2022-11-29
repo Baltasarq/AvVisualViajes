@@ -5,9 +5,10 @@ namespace AvVisualViajes.UI {
     using Avalonia;
     using Avalonia.Controls;
     using Avalonia.Markup.Xaml;
-    
-    
-    public partial class ViajeDlg : Window
+    using System.Diagnostics;
+
+
+    public class ViajeDlg : Window
     {
         public ViajeDlg()
             : this( DefaultOrg, DefaultDst, DefaultKms )
@@ -26,13 +27,19 @@ namespace AvVisualViajes.UI {
             var edOrg = this.FindControl<TextBox>( "EdOrg" );
             var edDest = this.FindControl<TextBox>( "EdDst" );
             var edKms = this.FindControl<NumericUpDown>( "EdKms" );
+            
+            Debug.Assert( btOk != null, "btOk not found in XAML!" );
+            Debug.Assert( btCancel != null, "btCancel not found in XAML!" );
+            Debug.Assert( edOrg != null, "edOrg not found in XAML!" );
+            Debug.Assert( edDest != null, "edDest not found in XAML!" );
+            Debug.Assert( edKms != null, "edKms not found in XAML!" );
 
             btOk.Click += (_, _) => this.OnExit();
             btCancel.Click += (_, _) => this.OnCancelClicked();
 
             edOrg.Text = org;
             edDest.Text = dest;
-            edKms.Value = kms;
+            edKms.Value = (decimal) kms;
             this.IsCancelled = false;
         }
 
@@ -54,15 +61,31 @@ namespace AvVisualViajes.UI {
         }
 
         public string Org {
-            get => this.FindControl<TextBox>( "EdOrg" ).Text.Trim();
+            get {
+                var edOrg = this.FindControl<TextBox>( "EdOrg" );
+                
+                Debug.Assert( edOrg != null, "edOrg not found in XAML!" );
+                return edOrg.Text.Trim();
+            }
         }
-        
+
         public string Dst {
-            get => this.FindControl<TextBox>( "EdDst" ).Text.Trim();
+            get {
+                var edDst = this.FindControl<TextBox>( "EdDst" );
+                
+                Debug.Assert( edDst != null, "edDst not found in XAML!" );
+                return edDst.Text.Trim();
+            }
         }
         
         public double Kms {
-            get => this.FindControl<NumericUpDown>( "EdKms" ).Value;
+            get
+            {
+                var edKms = this.FindControl<NumericUpDown>( "EdKms" );
+                
+                Debug.Assert( edKms != null, "edKms not found in XAML!" );
+                return (double) edKms.Value;
+            }
         }
         
         public bool IsCancelled {

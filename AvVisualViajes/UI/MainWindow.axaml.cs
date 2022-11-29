@@ -5,11 +5,12 @@ namespace AvVisualViajes.UI {
     using Avalonia;
     using Avalonia.Controls;
     using Avalonia.Markup.Xaml;
+    using System.Diagnostics;
 
     using Core;
 
     
-    public partial class MainWindow : Window {
+    public class MainWindow : Window {
         public MainWindow()
         {
             InitializeComponent();
@@ -22,6 +23,12 @@ namespace AvVisualViajes.UI {
             var opInsert = this.FindControl<MenuItem>( "OpInsert" );
             var btInsert = this.FindControl<Button>( "BtInsert" );
             var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
+            
+            Debug.Assert( opExit != null, "opExit not found in XAML" );
+            Debug.Assert( opAbout != null, "opAbout not found in XAML" );
+            Debug.Assert( opInsert != null, "opInsert not found in XAML" );
+            Debug.Assert( btInsert != null, "btInsert not found in XAML" );
+            Debug.Assert( dtTrips != null, "btInsert not found in XAML" );
 
             opExit.Click += (_, _) => this.OnExit();
             opAbout.Click += (_, _) => this.OnAbout();
@@ -44,6 +51,10 @@ namespace AvVisualViajes.UI {
         {
             var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
             var lblDesc = this.FindControl<Label>( "LblDesc" );
+
+            Debug.Assert( dtTrips != null, "dtTrips not found in XAML!" );
+            Debug.Assert( lblDesc != null, "lblDesc not found in XAML!" );
+            
             Viaje? viaje = (Viaje) dtTrips.SelectedItem;
 
             if ( viaje != null ) {
