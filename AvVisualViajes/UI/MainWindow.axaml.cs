@@ -1,4 +1,4 @@
-// AvVisualViajes (c) 2021 Baltasar MIT License <jbgarcia@uvigo.es>
+// AvVisualViajes (c) 2021/23 Baltasar MIT License <jbgarcia@uvigo.es>
 
 
 namespace AvVisualViajes.UI {
@@ -10,7 +10,7 @@ namespace AvVisualViajes.UI {
     using Core;
 
     
-    public class MainWindow : Window {
+    public partial class MainWindow : Window {
         public MainWindow()
         {
             InitializeComponent();
@@ -18,11 +18,11 @@ namespace AvVisualViajes.UI {
             this.AttachDevTools();
 #endif
 
-            var opExit = this.FindControl<MenuItem>( "OpExit" );
-            var opAbout = this.FindControl<MenuItem>( "OpAbout" );
-            var opInsert = this.FindControl<MenuItem>( "OpInsert" );
-            var btInsert = this.FindControl<Button>( "BtInsert" );
-            var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
+            var opExit = this.GetControl<MenuItem>( "OpExit" );
+            var opAbout = this.GetControl<MenuItem>( "OpAbout" );
+            var opInsert = this.GetControl<MenuItem>( "OpInsert" );
+            var btInsert = this.GetControl<Button>( "BtInsert" );
+            var dtTrips = this.GetControl<DataGrid>( "DtTrips" );
             
             Debug.Assert( opExit != null, "opExit not found in XAML" );
             Debug.Assert( opAbout != null, "opAbout not found in XAML" );
@@ -38,19 +38,19 @@ namespace AvVisualViajes.UI {
             dtTrips.SelectionChanged += (_, _) => this.OnTripSelected();
 
             this.RegistroViajes = XmlRegistroViajes.RecuperaXml();
-            dtTrips.Items = this.RegistroViajes;
+            dtTrips.ItemsSource = this.RegistroViajes;
         }
 
         void InitializeComponent()
         {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            AvaloniaXamlLoader.Load(this);
+            AvaloniaXamlLoader.Load( this );
         }
         
         void OnTripSelected()
         {
-            var dtTrips = this.FindControl<DataGrid>( "DtTrips" );
-            var lblDesc = this.FindControl<Label>( "LblDesc" );
+            var dtTrips = this.GetControl<DataGrid>( "DtTrips" );
+            var lblDesc = this.GetControl<Label>( "LblDesc" );
 
             Debug.Assert( dtTrips != null, "dtTrips not found in XAML!" );
             Debug.Assert( lblDesc != null, "lblDesc not found in XAML!" );
