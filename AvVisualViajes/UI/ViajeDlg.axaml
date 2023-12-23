@@ -48,16 +48,22 @@
             Margin="5">
             
             <Button Name="BtCancel"
-                    Content="Cancel"
                     Margin="5"
                     HorizontalContentAlignment="Center"
-                    HorizontalAlignment="Center" />
+                    HorizontalAlignment="Center">
+                <Image
+                    Stretch="None"
+                    Source="/Res/cancel.png"/>
+            </Button>
             
             <Button Name="BtOk"
-                    Content="Ok"
                     Margin="5"
                     HorizontalContentAlignment="Center"
-                    HorizontalAlignment="Center" />
+                    HorizontalAlignment="Center">
+                <Image
+                    Stretch="None"
+                    Source="/Res/check.png"/>
+            </Button>
             
         </StackPanel>
     </StackPanel>

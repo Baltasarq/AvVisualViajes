@@ -45,9 +45,12 @@
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Right">
                             
-                <Button Name="BtInsert"
-                        Margin="5"
-                        Content="Insertar" />
+               <Button Name="BtInsert"
+                        Margin="5">
+                   <Image
+                        Stretch="None"
+                        Source="/Res/insert.png"/>
+                </Button>
             </StackPanel>
         
             <Border    Margin="5"
@@ -59,9 +62,7 @@
                           Margin="5"
                           AutoGenerateColumns="False"
                           IsReadOnly="True"
-                          SelectionMode="Single"
-                          AlternatingRowBackground="Whitesmoke">
-                    
+                          SelectionMode="Single">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Kms" Binding="{Binding Kms}" />
                         <DataGridTextColumn Header="Origen"  Binding="{Binding Inicio}" />
