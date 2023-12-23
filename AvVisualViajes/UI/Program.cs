@@ -1,4 +1,4 @@
-﻿// AvVisualViajes (c) 2021 Baltasar MIT License <jbgarcia@uvigo.es>
+﻿// AvVisualViajes (c) 2021/23 Baltasar MIT License <jbgarcia@uvigo.es>
 
 
 namespace AvVisualViajes.UI {
