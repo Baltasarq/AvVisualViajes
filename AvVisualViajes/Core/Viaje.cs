@@ -1,4 +1,4 @@
-﻿// AvVisualViajes (c) 2021 Baltasar MIT License <jbgarcia@uvigo.es>
+﻿// AvVisualViajes (c) 2021/23 Baltasar MIT License <jbgarcia@uvigo.es>
 
 
 namespace AvVisualViajes.Core {
@@ -41,7 +41,7 @@ namespace AvVisualViajes.Core {
             int numHoras;
             int numMinutos;
             
-            duracion = duracion % NumHorasPorJornada;
+            duracion %= NumHorasPorJornada;
             numHoras = (int) duracion;
             numMinutos = (int) ( 60.0 * ( duracion - ( (int) duracion ) ) );
 
