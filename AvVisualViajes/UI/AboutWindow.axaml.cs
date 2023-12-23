@@ -1,4 +1,4 @@
-// AvVisualViajes (c) 2021 Baltasar MIT License <jbgarcia@uvigo.es>
+// AvVisualViajes (c) 2021/23 Baltasar MIT License <jbgarcia@uvigo.es>
 
 
 namespace AvVisualViajes.UI {
@@ -10,7 +10,7 @@ namespace AvVisualViajes.UI {
     using AvVisualViajes.Core;
 
 
-    public class AboutWindow : Window {
+    public partial class AboutWindow : Window {
         public AboutWindow()
         {
             InitializeComponent();
@@ -18,8 +18,8 @@ namespace AvVisualViajes.UI {
             this.AttachDevTools();
 #endif
 
-            var btOk = this.FindControl<Button>( "BtOk" );
-            var txtAbout = this.FindControl<TextBlock>( "TxtAbout" );
+            var btOk = this.GetControl<Button>( "BtOk" );
+            var txtAbout = this.GetControl<TextBlock>( "TxtAbout" );
             
             Debug.Assert( btOk != null, "btOk no encontrado en XAML!" );
             Debug.Assert( txtAbout != null, "txtAbout no encontrado en XAML!" );
