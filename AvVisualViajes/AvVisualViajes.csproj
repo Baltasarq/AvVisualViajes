@@ -2,7 +2,7 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <Nullable>enable</Nullable>
-        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
       <Compile Update="UI\AboutWindow.axaml.cs">
@@ -23,8 +23,12 @@
       </Compile>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
-      <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview4" />
-      <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview4" />
+      <PackageReference Include="Avalonia" Version="11.0.6" />
+      <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
+      <PackageReference Include="Avalonia.Diagnostics" Version="11.0.6" />
+      <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
+    </ItemGroup>
+    <ItemGroup>
+      <AvaloniaResource Include="Res\**"/>
     </ItemGroup>
 </Project>
